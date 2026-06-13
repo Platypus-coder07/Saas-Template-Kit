@@ -30,7 +30,7 @@ export default function SignUp() {
 
   const router = useRouter();
 
-  if (fetchStatus === "fetching") return null;
+  // if (fetchStatus === "fetching") return null;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -49,6 +49,7 @@ export default function SignUp() {
       await signUp.verifications.sendEmailCode();
 
       setPendingVerification(true);
+
     } catch (err: any) {
       console.error(err);
       setError("Signup failed");
@@ -89,6 +90,7 @@ export default function SignUp() {
         </CardHeader>
 
         <CardContent>
+          <div id="clerk-captcha" />
           {!pendingVerification ? (
             <form onSubmit={submit} className="space-y-4">
               <div className="space-y-2">
