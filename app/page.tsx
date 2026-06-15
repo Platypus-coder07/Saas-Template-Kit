@@ -146,7 +146,7 @@ export default function Home() {
               <div className="w-14 h-3 bg-stone-200/80 rounded" />
             </div>
 
-            <div className="relative flex flex-col gap-2 h-[136px] overflow-hidden">
+            <div className="relative flex flex-col gap-2 h-34 overflow-hidden">
               <AnimatePresence initial={false}>
                 {visibleTasks.map((item) => (
                   <motion.div
@@ -156,7 +156,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15, scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 450, damping: 38 }}
-                    className="flex items-center gap-3 p-2 bg-stone-50 border border-stone-200/50 rounded-lg w-full h-[38px] overflow-hidden shrink-0"
+                    className="flex items-center gap-3 p-2 bg-stone-50 border border-stone-200/50 rounded-lg w-full h-9.5 overflow-hidden shrink-0"
                   >
                     <motion.div
                       animate={{
@@ -175,7 +175,7 @@ export default function Home() {
                     </motion.div>
 
                     <span
-                      className={`text-[11px] sm:text-xs font-semibold tracking-tight truncate max-w-[160px] sm:max-w-xs md:max-w-md transition-all duration-300 ${
+                      className={`text-[11px] sm:text-xs font-semibold tracking-tight truncate max-w-40 sm:max-w-xs md:max-w-md transition-all duration-300 ${
                         item.checked
                           ? "line-through text-stone-400"
                           : "text-stone-700"
@@ -217,7 +217,7 @@ export default function Home() {
               <Card className="bg-[#FCFAEF] border border-stone-200 shadow-xl rounded-xl p-3 sm:p-4 h-full flex flex-col justify-between">
                 <CardContent className="p-0">
                   <div className="text-[#2D8A78] mb-2 bg-[#2D8A78]/10 w-8 h-8 flex items-center justify-center rounded-lg">
-                    <feature.icon className="w-4 h-4 stroke-[2]" />
+                    <feature.icon className="w-4 h-4 stroke-2" />
                   </div>
                   <h3 className="text-xs sm:text-sm font-bold text-stone-900 tracking-tight mb-0.5">
                     {feature.title}
