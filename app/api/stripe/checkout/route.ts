@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!); // "!" specified type
 
 export async function POST() {
 
-  const userId = "user_2g7np7Hrk0SN6kj5EDMLDaKNL0S";
+  const {userId} = await auth();
   
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized user" }, { status: 401 });
