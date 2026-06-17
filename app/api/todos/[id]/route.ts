@@ -5,7 +5,7 @@ import { validateTodoAction } from "@/lib/tier-limits";
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const { userId } = await auth();
   if (!userId) {
@@ -13,7 +13,7 @@ export async function PUT(
   }
 
   try {
-    const todoId = params.id;
+    const { id: todoId } = await params;
 
     // 1. Fetch current todo to verify existence, ownership, and current state
     const todo = await prisma.todo.findFirst({
@@ -61,7 +61,7 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const { userId } = await auth();
   if (!userId) {
@@ -69,7 +69,7 @@ export async function DELETE(
   }
 
   try {
-    const todoId = params.id;
+    const { id: todoId } = await params;
     const todo = await prisma.todo.findFirst({
       where: { id: todoId, userId },
     });
@@ -80,7 +80,6 @@ export async function DELETE(
 
     await prisma.todo.delete({ where: { id: todoId } });
     return NextResponse.json({ message: "Todo deleted successfully" });
-
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },

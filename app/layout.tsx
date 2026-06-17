@@ -3,8 +3,9 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { Toaster } from "react-hot-toast"; 
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saas Template",
-  description: "A SaaS template built with Next.js, Prisma, and Clerk for authentication.",
+  title: "Todo Master",
+  description:
+    "A minimalist task management platform engineered to eliminate cognitive clutter.",
 };
 
 export default function RootLayout({
@@ -28,13 +30,21 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+      <html lang="en" className={cn("font-sans", inter.variable)}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              className:
+                "font-sans text-sm font-semibold text-stone-800 bg-white border border-stone-200 shadow-lg rounded-xl",
+              duration: 4000,
+            }}
+          />
+          {children}
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
