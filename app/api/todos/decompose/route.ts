@@ -77,8 +77,15 @@ export async function POST(req: NextRequest) {
             throw new Error("Empty response received from AI engine");
         }
 
-        const structuredData = JSON.parse(responseText);
-        return NextResponse.json({ subTasks: structuredData.subTasks });  
+        try {
+            const structuredData = JSON.parse(responseText);
+            return NextResponse.json({ subTasks: structuredData.subTasks });
+        } catch {
+            return NextResponse.json(
+                { error: "Failed to parse AI response" },
+                { status: 500 },
+          );
+        }  
 
     } catch (error) {
         console.error("AI Decomposer Error:", error);

@@ -3,7 +3,6 @@ import { auth } from "@clerk/nextjs/server";
 import prisma from "@/lib/prisma";
 import { validateTodoAction } from "@/lib/tier-limits";
 
-const FREE_TIER_LIMIT = 10;
 const ITEMS_PER_PAGE = 10;
 
 export async function GET(req: NextRequest) {
@@ -75,6 +74,10 @@ export async function POST(req: NextRequest) {
         userId,
       },
     });
+
+    if (!title?.trim()) {
+      return NextResponse.json({ error: "Title is required" }, { status: 400 });
+    }
 
     return NextResponse.json(todo, { status: 201 });
   } catch (error) {
