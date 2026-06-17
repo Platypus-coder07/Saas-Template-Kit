@@ -18,14 +18,35 @@ model User {
   isSubscribed     Boolean   @default(false)
   subscriptionEnds DateTime?
   todos            Todo[]
+  createdAt        DateTime  @default(now())
 }
 
 model Todo {
-  id        String   @id @default(cuid())
-  title     String
-  completed Boolean  @default(false)
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  id          String     @id @default(cuid())
+  title       String
+  description String?
+  completed   Boolean    @default(false)
+  priority    Priority   @default(MEDIUM)
+  status      TodoStatus @default(BACKLOG)
+  dueDate     DateTime?
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([userId])
+  @@index([userId, completed])
+  @@index([userId, status])       
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum TodoStatus {
+  INBOX      // quick captured, unprocessed
+  TODAY      // in today's focus list  
+  BACKLOG    // exists but not scheduled
 }
