@@ -21,11 +21,11 @@ export async function POST() {
         },
       ],
       mode: "subscription",
-      success_url: `${process.env.NEXT_PUBLIC_DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_DOMAIN}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/cancel`,
       metadata: {
-            userId,
-        },
+        userId,
+      },
     });
 
     return NextResponse.json({ url: session.url });
