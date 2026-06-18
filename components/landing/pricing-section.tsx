@@ -35,7 +35,6 @@ export function PricingSection() {
 
   return (
     <div className="w-full bg-[#F4F1E8] text-[#161616] font-sans antialiased py-20 space-y-20">
-      {/* HEADER SECTION - COMPRESSED VERTICAL RHYTHM */}
       <header className="max-w-4xl mx-auto text-center px-4 space-y-3">
         <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-stone-900 leading-tight">
           Invest in Focus. Not More Complexity.
@@ -45,10 +44,8 @@ export function PricingSection() {
         </p>
       </header>
 
-      {/* PRICING CARDS CONTRAST TRAY - ACCENTUATED DIMENSIONS */}
       <div className="max-w-6xl mx-auto px-4">
         <div className="rounded-[40px] bg-white/40 border border-stone-200/60 p-6 sm:p-10 flex flex-col md:flex-row gap-6 justify-center items-stretch max-w-5xl mx-auto">
-          {/* FREE CARD */}
           <motion.div
             whileHover={{ y: -4, borderColor: "rgba(120, 113, 108, 0.3)" }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -95,7 +92,6 @@ export function PricingSection() {
             </Button>
           </motion.div>
 
-          {/* PRO CARD - MAXIMUM PERCEIVED VALUE LAYOUT */}
           <motion.div
             whileHover={{
               y: -4,
@@ -149,7 +145,6 @@ export function PricingSection() {
       </div>
 
 
-      {/* REFINED TRUST STATEMENT + FAQ FLOW */}
       <section className="max-w-3xl mx-auto px-4 pt-4 space-y-6">
         <div className="text-center space-y-1.5 py-2 border-b border-stone-200/50 pb-6">
           <p className="text-lg font-black text-stone-700">

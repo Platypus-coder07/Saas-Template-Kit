@@ -188,7 +188,6 @@ export function TodoDetailModal({
             transition={{ duration: 0.18, ease: "easeOut" }}
             className="bg-white border border-stone-200/80 w-full max-w-lg rounded-2xl shadow-xl flex flex-col max-h-[90vh] overflow-hidden"
           >
-            {/* Modal Top Metadata Strip */}
             <div className="p-4 border-b border-stone-100 flex items-center justify-between bg-[#F4F1E8]/20 shrink-0">
               <div className="flex items-center gap-2">
                 <span
@@ -214,9 +213,7 @@ export function TodoDetailModal({
               </button>
             </div>
 
-            {/* Scrollable Document Editing Core */}
             <div className="p-5 overflow-y-auto space-y-5 flex-1 text-stone-800">
-              {/* Editable Title Section */}
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
                   Task Title
@@ -229,7 +226,6 @@ export function TodoDetailModal({
                 />
               </div>
 
-              {/* Editable Description Box */}
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
                   Context Notes
@@ -242,7 +238,6 @@ export function TodoDetailModal({
                 />
               </div>
 
-              {/* Quick Config Strip Grid */}
               <div className="grid grid-cols-2 gap-4 pt-1">
                 <div className="space-y-1.5">
                   <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
@@ -286,7 +281,6 @@ export function TodoDetailModal({
                 </div>
               </div>
 
-              {/* ─── AI SUB-TASKS PROCESSING TRACKER ─── */}
               <div className="border-t border-stone-100 pt-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black tracking-tight text-stone-800 uppercase">
@@ -309,7 +303,6 @@ export function TodoDetailModal({
                   )}
                 </div>
 
-                {/* Sub-task Display Shell */}
                 <div className="space-y-2">
                   {isAiLoading && (
                     <div className="p-6 border border-dashed border-stone-200 rounded-xl flex flex-col items-center justify-center text-stone-400 space-y-1.5 bg-stone-50/30">
@@ -354,7 +347,6 @@ export function TodoDetailModal({
               </div>
             </div>
 
-            {/* Modal Primary Action Confirmation Strip */}
             <div className="p-4 border-t border-stone-100 flex items-center justify-between bg-stone-50/50 shrink-0">
               <button
                 onClick={handleDelete}

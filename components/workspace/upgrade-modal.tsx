@@ -64,7 +64,6 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="bg-white border border-stone-200 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative flex flex-col"
           >
-            {/* Absolute Close Anchor */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 p-1.5 bg-stone-50 hover:bg-stone-100 border border-stone-200/40 rounded-lg text-stone-400 hover:text-stone-700 transition-all duration-150 z-10"
@@ -72,7 +71,6 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               <X className="w-3.5 h-3.5" />
             </button>
 
-            {/* Header Identity Block */}
             <div className="p-6 pb-4 space-y-3 bg-[#F4F1E8]/20 border-b border-stone-100">
               <div className="flex items-center gap-1.5 bg-[#E6B85C]/10 border border-[#E6B85C]/30 text-amber-800 px-2.5 py-1 rounded-lg w-max text-[10px] font-black uppercase tracking-widest">
                 <Sparkles className="w-3 h-3 fill-[#E6B85C]" />
@@ -89,7 +87,6 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               </div>
             </div>
 
-            {/* High-Density Features Grid */}
             <div className="p-6 space-y-6 flex-1">
               <div className="space-y-3.5">
                 {PRO_FEATURES.map((feature, i) => (
@@ -109,7 +106,6 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
                 ))}
               </div>
 
-              {/* Premium Tabular Pricing Layout */}
               <div className="bg-[#F4F1E8]/40 border border-stone-200 rounded-xl p-4 flex items-center justify-between shadow-3xs">
                 <div className="space-y-0.5">
                   <span className="text-[9px] font-black text-stone-400 uppercase tracking-widest block">
@@ -135,7 +131,6 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
                 </div>
               </div>
 
-              {/* Action Pipeline Drawer */}
               <div className="space-y-3 pt-1">
                 <button
                   onClick={handleUpgrade}

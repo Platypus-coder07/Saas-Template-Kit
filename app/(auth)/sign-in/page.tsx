@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { ShieldCheck, User } from "lucide-react";
+import { ShieldCheck, User, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function SignIn() {
@@ -24,6 +24,7 @@ export default function SignIn() {
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
 
@@ -253,14 +254,25 @@ export default function SignIn() {
                       </div>
                       <div className="relative">
                         <Input
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           id="password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder="Enter your password"
-                          className="bg-white border-stone-300 focus-visible:ring-[#2D8A78] focus-visible:ring-2 focus-visible:border-[#2D8A78] text-stone-900 h-11 rounded-xl shadow-sm placeholder:text-stone-400"
+                          className="bg-white border-stone-300 focus-visible:ring-[#2D8A78] focus-visible:ring-2 focus-visible:border-[#2D8A78] text-stone-900 h-11 rounded-xl shadow-sm placeholder:text-stone-400 pr-10"
                           required
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 transition-colors focus:outline-none"
+                        >
+                          {showPassword ? (
+                            <EyeOff className="w-4 h-4 stroke-[2]" />
+                          ) : (
+                            <Eye className="w-4 h-4 stroke-[2]" />
+                          )}
+                        </button>
                       </div>
                     </div>
 

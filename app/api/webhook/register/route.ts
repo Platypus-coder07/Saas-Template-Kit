@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         return new Response("Error occured- No svix header");
     }
 
-    const payload = await req.json();
+    const payload = await req.json(); 
     const body = JSON.stringify(payload);
 
     const wh = new Webhook(WEBHOOK_SECRET);
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
             "svix-signature" : svix_signature
         }) as WebhookEvent;
 
-        console.log("Webhook event received:", event);
+        // console.log("Webhook event received:", event);
         
     } catch (error) {
         console.error("Error verifying webhook:", error); 
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
                 isSubscribed: false,
               },
             });
-            console.log("new user crearted", newUser);
+            // console.log("new user crearted", newUser);
             
 
         } catch (error) {

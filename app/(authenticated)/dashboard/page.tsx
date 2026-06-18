@@ -184,7 +184,6 @@ export default function DashboardPage() {
         </aside>
 
         <main className="flex-1 overflow-y-auto px-4 py-6 sm:p-8 md:p-12 space-y-8 h-full bg-[#F4F1E8]">
-          {/* Header Typography Section Block */}
           <div className="space-y-1 pt-6 md:pt-0">
             <h1 className="text-3xl font-black tracking-tight text-[#161616]">
               {greeting}

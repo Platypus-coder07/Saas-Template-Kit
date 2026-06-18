@@ -185,7 +185,6 @@ export function TodoItem({ todo, onRefreshAction }: TodoItemProps) {
         </div>
       </motion.div>
 
-      {/* Embedded Detail Overlay Controller */}
       <TodoDetailModal
         todo={todo}
         isOpen={isDetailOpen}

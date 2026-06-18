@@ -23,7 +23,6 @@ const STEPS = [
 export function WorkflowSection() {
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-8 space-y-20">
-      {/* Editorial Headings */}
       <div className="text-center space-y-4 max-w-2xl mx-auto">
         <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-stone-900">
           How Work Flows Through Todo Master
@@ -34,9 +33,7 @@ export function WorkflowSection() {
         </p>
       </div>
 
-      {/* Two-Column Side-by-Side Content Split */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-4">
-        {/* LEFT COLUMN: RAW NATIVE JSON LOTTIE CANVAS */}
         <div className="lg:col-span-7 w-full aspect-video max-w-xl mx-auto flex items-center justify-center overflow-hidden">
           <Lottie
             animationData={workflowAnimationData}
@@ -44,7 +41,6 @@ export function WorkflowSection() {
             className="w-full h-full object-contain scale-130"
           />
         </div>
-
         {/* RIGHT COLUMN: PROCESS TIMELINE STEPS LIST */}
         <div className="lg:col-span-5 relative border-l border-stone-200/80 pl-6 ml-2 space-y-6">
           {STEPS.map((node, idx) => (
@@ -54,9 +50,8 @@ export function WorkflowSection() {
                 <div className="w-1.5 h-1.5 rounded-xs bg-stone-300 group-hover:bg-[#2D8A78] transition-colors" />
               </div>
 
-              {/* Icon Frame */}
               <div className="w-8 h-8 bg-white border border-stone-200 rounded-lg flex items-center justify-center text-stone-500 group-hover:text-[#2D8A78] group-hover:border-[#8FB8A8]/40 transition-all shadow-3xs shrink-0">
-                <node.icon className="w-4 h-4 stroke-[2]" />
+                <node.icon className="w-4 h-4 stroke-2" />
               </div>
 
               {/* Step Copy Block */}

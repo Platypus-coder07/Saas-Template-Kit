@@ -107,7 +107,6 @@ export function TodoForm({ onSuccessAction }: TodoFormProps) {
         )}
       </div>
 
-      {/* Expanded Fields Meta Selection Panel */}
       {isExpanded && (
         <div className="border-t border-stone-100 pt-3 px-1 space-y-3 animate-fadeIn">
           <textarea
@@ -147,7 +146,6 @@ export function TodoForm({ onSuccessAction }: TodoFormProps) {
                 </div>
               </div>
 
-              {/* Due Date Trigger */}
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">
                   Target Timeline
@@ -164,7 +162,6 @@ export function TodoForm({ onSuccessAction }: TodoFormProps) {
               </div>
             </div>
 
-            {/* Form Actions Section */}
             <div className="flex items-center gap-2 self-end">
               <Button
                 type="button"

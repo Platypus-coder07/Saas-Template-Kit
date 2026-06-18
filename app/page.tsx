@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/landing/hero-section";
-import { MarketingSections } from "@/components/landing/marketing-sections";
 import { FeaturesSection } from "@/components/landing/features-section";
 import { PricingSection } from "@/components/landing/pricing-section";
 import { Footer } from "@/components/landing/footer";
@@ -12,7 +11,6 @@ export default function RootMarketingLandingPage() {
       <FeaturesSection />
       <PricingSection />
       <Footer />
-      {/* <MarketingSections /> */}
     </div>
   );
 }

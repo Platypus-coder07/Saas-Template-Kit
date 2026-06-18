@@ -28,10 +28,10 @@ export async function POST(req: Request) {
       const userId = session.metadata?.userId;
       if(userId) {
         const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
-        console.log(
-          "🫂🫂 Subscription object:",
-          JSON.stringify(subscription, null, 2),
-        );
+        // console.log(
+        //   "🫂🫂 Subscription object:",
+        //   JSON.stringify(subscription, null, 2),
+        // );
 
         const subscriptionEnds = new Date(
           subscription.items.data[0].current_period_end * 1000,
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
             },
         })
 
-        console.log("😡 User subscribed:", userId, "ends:", subscriptionEnds);
+        // console.log("😡 User subscribed:", userId, "ends:", subscriptionEnds);
         
       }
 

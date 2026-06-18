@@ -29,7 +29,6 @@ export function ComparisonSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-        {/* Left Card: Traditional Friction */}
         <div className="bg-white border border-stone-200/80 rounded-2xl p-8 sm:p-10 space-y-6">
           <h4 className="text-base font-black text-stone-400 uppercase tracking-wider border-b border-stone-100 pb-3">
             Traditional Todo Apps
@@ -47,7 +46,6 @@ export function ComparisonSection() {
           </ul>
         </div>
 
-        {/* Right Card: Todo Master Premium Architecture */}
         <div className="bg-white border-2 border-[#2D8A78] rounded-2xl p-8 sm:p-10 space-y-6 shadow-sm">
           <h4 className="text-base font-black text-[#2D8A78] uppercase tracking-wider border-b border-stone-100 pb-3 flex items-center justify-between">
             Todo Master
