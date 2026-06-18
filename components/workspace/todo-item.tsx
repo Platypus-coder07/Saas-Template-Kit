@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Trash2, ArrowRightLeft, ArrowUpRight, Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { TodoDetailModal } from "./todo-detail-modal"; 
+import { useUpgradeModal } from "@/lib/upgrade-modal-context";
 
 interface Todo {
   id: string;
@@ -24,6 +25,7 @@ interface TodoItemProps {
 export function TodoItem({ todo, onRefreshAction }: TodoItemProps) {
   const [isUpdating, setIsUpdating] = useState(false);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const { showUpgradeModal } = useUpgradeModal();
 
   const toggleComplete = async (e: React.MouseEvent) => {
     e.stopPropagation(); // Avoid popping the modal on button check toggle
@@ -53,6 +55,11 @@ export function TodoItem({ todo, onRefreshAction }: TodoItemProps) {
         body: JSON.stringify({ status: "TODAY" }),
       });
       const data = await res.json();
+      if (res.status === 403) {
+        showUpgradeModal(); 
+        return;
+      }
+
       if (!res.ok) throw new Error(data.error || "Action restricted");
       toast.success("Allocated to Today's Focus");
       onRefreshAction();
@@ -103,7 +110,7 @@ export function TodoItem({ todo, onRefreshAction }: TodoItemProps) {
           <button
             onClick={toggleComplete}
             disabled={isUpdating}
-            className={`w-[18px] h-[18px] rounded-md flex items-center justify-center border transition-all shrink-0 ${
+            className={`size-4.5 rounded-md flex items-center justify-center border transition-all shrink-0 ${
               todo.completed
                 ? "bg-[#2D8A78] border-[#2D8A78] text-white"
                 : "border-stone-300 bg-stone-50 hover:border-stone-400"

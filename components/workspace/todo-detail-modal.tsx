@@ -11,6 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
+import { useUpgradeModal } from "@/lib/upgrade-modal-context";
 
 interface Todo {
   id: string;
@@ -47,6 +48,8 @@ export function TodoDetailModal({
   const [generatedSubTasks, setGeneratedSubTasks] = useState<
     { title: string; description: string }[]
   >([]);
+
+  const { showUpgradeModal } = useUpgradeModal();
 
   // Safely format incoming dates for HTML input compatibility
   useEffect(() => {
@@ -118,8 +121,11 @@ export function TodoDetailModal({
         }),
       });
       const data = await res.json();
-      if (!res.ok)
-        throw new Error(data.error || "Decomposition pipeline aborted");
+      if (res.status === 403) {
+        showUpgradeModal();
+        return;
+      }
+      if (!res.ok) throw new Error(data.error || "Decomposition pipeline aborted");
       setGeneratedSubTasks(data.subTasks || []);
       toast.success("AI breakdown sequence completed");
     } catch (error: any) {
@@ -147,6 +153,10 @@ export function TodoDetailModal({
           });
           if (!res.ok) {
             const data = await res.json();
+            if (res.status === 403) {
+              showUpgradeModal(); 
+              return;
+            }
             throw new Error(data.error);
           }
         }),

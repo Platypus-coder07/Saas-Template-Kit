@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { Plus, Loader2, Calendar} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useUpgradeModal } from "@/lib/upgrade-modal-context";
 
 interface TodoFormProps {
   onSuccessAction: () => void;
@@ -16,6 +17,7 @@ export function TodoForm({ onSuccessAction }: TodoFormProps) {
   const [priority, setPriority] = useState<"LOW" | "MEDIUM" | "HIGH">("MEDIUM");
   const [dueDate, setDueDate] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showUpgradeModal } = useUpgradeModal();
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -53,6 +55,11 @@ export function TodoForm({ onSuccessAction }: TodoFormProps) {
       });
 
       const data = await response.json();
+      if (response.status === 403) {
+        showUpgradeModal(); 
+        return;
+      }
+
       if (!response.ok) throw new Error(data.error || "Capture rejected");
 
       toast.success("Task dropped into Inbox");
