@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^7.0.1",
-    "@dotlottie/react-player": "^1.6.19",
     "@google/genai": "^2.8.0",
     "@neondatabase/serverless": "^1.1.0",
     "@prisma/adapter-neon": "^7.8.0",
